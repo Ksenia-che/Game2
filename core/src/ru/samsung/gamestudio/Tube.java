@@ -24,7 +24,7 @@ public class Tube {
     Random r = new Random();
 
     public boolean needAddPoint(Bird bird) {
-        return bird.x > x + width && !isPointReceived;
+        return bird.x >= x + width && !isPointReceived;
     }
     public void setPointReceived() {
         isPointReceived = true;
