@@ -1,11 +1,10 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import java.util.Random;
 
-import static com.badlogic.gdx.graphics.g2d.ParticleEmitter.SpriteMode.random;
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
 import static ru.samsung.gamestudio.MyGdxGame.SCR_WIDTH;
 
@@ -39,11 +38,11 @@ public class Tube {
         x = distanceBetweenTubes * tubeIdx + SCR_WIDTH;
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         batch.draw(textureUpperTube, x, gapY + gapHeight / 2, width, height);
         batch.draw(textureDownTube, x, gapY - gapHeight / 2 - height, width, height);
     }
-    void move() {
+    public void move() {
         x -= speed;
         if (x < -width) {
             isPointReceived = false;

@@ -1,14 +1,18 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.gamestudio.MyGdxGame;
+import ru.samsung.gamestudio.characters.Bird;
+import ru.samsung.gamestudio.characters.Tube;
+import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.PointCounter;
 
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
 import static ru.samsung.gamestudio.MyGdxGame.SCR_WIDTH;
 
-class ScreenGame implements Screen {
+public class ScreenGame implements Screen {
     MyGdxGame myGdxGame;
     Bird bird;
     MovingBackground background;
@@ -22,9 +26,9 @@ class ScreenGame implements Screen {
     final int pointCounterMarginRight = 400;
 
 
-    ScreenGame(MyGdxGame myGdxGame) {
+    public ScreenGame(MyGdxGame myGdxGame) {
         pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginRight, SCR_HEIGHT - pointCounterMarginTop);
-        background = new MovingBackground();
+        background = new MovingBackground("background/game_bg.png");
         this.myGdxGame = myGdxGame;
         bird = new Bird(0,500, 5);
         tubes = new Tube[tubeCount];
@@ -66,6 +70,11 @@ class ScreenGame implements Screen {
             System.out.println("not in field");
             isGameOver = true;
         }
+        if (isGameOver) {
+            myGdxGame.screenRestart.gamePoints = gamePoints;
+            myGdxGame.setScreen(myGdxGame.screenRestart);
+        }
+
 
         ScreenUtils.clear(1, 0, 0, 1);
         myGdxGame.camera.update();

@@ -1,4 +1,4 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -32,12 +32,12 @@ public class Bird {
         return true;
     }
 
-    void onClick() {
+    public void onClick() {
         jump = true;
         int y = 0;
         jumpHeight = maxHeightOfJump + y;
     }
-    void fly() {
+    public void fly() {
         int y = 0;
         if (y >= jumpHeight) {
             jump = false;
@@ -50,7 +50,7 @@ public class Bird {
             y -= speed;
         }
     }
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         int frameMultiplier = 10;
         batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
