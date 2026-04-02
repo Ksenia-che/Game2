@@ -30,7 +30,10 @@ public class ScreenGame implements Screen {
         pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginRight, SCR_HEIGHT - pointCounterMarginTop);
         background = new MovingBackground("background/game_bg.png");
         this.myGdxGame = myGdxGame;
-        bird = new Bird(0,500, 5);
+        bird = new Bird(0, 500, 5);
+        initTubes();
+    }
+    public void initTubes(){
         tubes = new Tube[tubeCount];
         for (int i = 0; i < tubeCount; i++) {
             tubes[i] = new Tube(tubeCount, i);
@@ -42,6 +45,8 @@ public class ScreenGame implements Screen {
     public void show() {
         gamePoints = 0;
         isGameOver = false;
+        bird.setY(SCR_HEIGHT / 2);
+        initTubes();
     }
 
     @Override

@@ -1,8 +1,26 @@
 package ru.samsung.gamestudio.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.gamestudio.MyGdxGame;
+import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.TextButton;
 
 public class ScreenMenu implements Screen {
+    MyGdxGame myGdxGame;
+    MovingBackground background;
+
+    TextButton buttonStart;
+    TextButton buttonExit;
+
+public ScreenMenu(MyGdxGame myGdxGame) {
+    this.myGdxGame = myGdxGame;
+    buttonStart = new TextButton(100, 400, "Start");
+    buttonExit = new TextButton(700, 400, "Exit");
+    background = new MovingBackground("background/restart_bg.png");
+}
+
     @Override
     public void show() {
 
@@ -10,11 +28,29 @@ public class ScreenMenu implements Screen {
 
     @Override
     public void render(float v) {
+        if (Gdx.input.justTouched()) {
+            int tx = Gdx.input.getX();
+            int ty = MyGdxGame.SCR_HEIGHT - Gdx.input.getY();
 
+            if (buttonStart.isHit(tx, ty)) {
+                myGdxGame.setScreen(myGdxGame.screenGame);
+            }
+            if (buttonExit.isHit(tx, ty)) {
+                Gdx.app.exit();
+            }
+        }
+        ScreenUtils.clear(1, 0, 0, 1);
+        myGdxGame.camera.update();
+        myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
+        myGdxGame.batch.begin();
+        background.draw(myGdxGame.batch);
+        buttonStart.draw(myGdxGame.batch);
+        buttonExit.draw(myGdxGame.batch);
+        myGdxGame.batch.end();
     }
 
     @Override
-    public void resize(int i, int i1) {
+    public void resize(int width, int height) {
 
     }
 
@@ -35,6 +71,8 @@ public class ScreenMenu implements Screen {
 
     @Override
     public void dispose() {
-
+        background.dispose();
+        buttonStart.dispose();
+        buttonExit.dispose();
     }
 }

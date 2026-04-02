@@ -1,8 +1,10 @@
 package ru.samsung.gamestudio.components;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.Vector3;
 
 public class PointCounter {
     int x, y;
@@ -18,10 +20,12 @@ public class PointCounter {
     }
 
     public void draw(Batch batch, int countOfPoints) {
+
         font.draw(batch, "Count: " + countOfPoints, x, y);
     }
 
     void dispose() {
+
         font.dispose();
     }
 }

@@ -30,7 +30,7 @@ public class MovingBackground {
         batch.draw(texture, 0, 0, MyGdxGame.SCR_WIDTH, MyGdxGame.SCR_HEIGHT);
         batch.draw(texture, texture2X, 0, MyGdxGame.SCR_WIDTH + 2, MyGdxGame.SCR_HEIGHT);
     }
-    void dispose() {
+    public void dispose() {
         texture.dispose();
     }
 }

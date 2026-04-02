@@ -30,13 +30,17 @@ public class TextButton {
         textWidth = (int) gl.width;
         textHeight = (int) gl.height;
 
-        texture = new Texture("button_bg.png");
+        texture = new Texture("button/button_bg.png");
         buttonWidth = texture.getWidth();
         buttonHeight = texture.getHeight();
 
         textX = x + (buttonWidth - textWidth) / 2;
         textY = y + (buttonHeight + textHeight) / 2;
     }
+    public boolean isHit(int tx, int ty) {
+        return tx >= x && tx <= x + buttonWidth && ty >= y && ty <= y + buttonHeight;
+    }
+
     public void draw(Batch batch) {
         batch.draw(texture, x, y, buttonWidth, buttonHeight);
         font.draw(batch, text, textX, textY);

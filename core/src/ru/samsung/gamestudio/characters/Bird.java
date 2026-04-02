@@ -34,16 +34,13 @@ public class Bird {
 
     public void onClick() {
         jump = true;
-        int y = 0;
         jumpHeight = maxHeightOfJump + y;
     }
     public void fly() {
-        int y = 0;
         if (y >= jumpHeight) {
             jump = false;
         }
 
-        int speed = 0;
         if (jump) {
             y += speed;
         } else {
@@ -54,5 +51,21 @@ public class Bird {
         int frameMultiplier = 10;
         batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
