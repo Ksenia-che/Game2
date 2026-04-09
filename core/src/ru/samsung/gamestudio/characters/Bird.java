@@ -20,10 +20,10 @@ public class Bird {
         this.y = y;
         this.speed = speed;
         framesArray = new Texture[]{
-                new Texture("bird/bird0.png"),
-                new Texture("bird/bird1.png"),
-                new Texture("bird/bird2.png"),
-                new Texture("bird/bird1.png"),
+                new Texture("bird/dino0.png"),
+                new Texture("bird/dino1.png"),
+                new Texture("bird/dino2.png"),
+                new Texture("bird/dino1.png"),
         };
     }
     public boolean isInField() {
