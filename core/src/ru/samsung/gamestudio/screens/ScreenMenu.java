@@ -18,7 +18,7 @@ public ScreenMenu(MyGdxGame myGdxGame) {
     this.myGdxGame = myGdxGame;
     buttonStart = new TextButton(100, 400, "Start");
     buttonExit = new TextButton(700, 400, "Exit");
-    background = new MovingBackground("background/restart_bg.png");
+    background = new MovingBackground("background/dinobackrestart.png");
 }
 
     @Override
