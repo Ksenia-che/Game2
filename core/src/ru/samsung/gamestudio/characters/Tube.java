@@ -16,7 +16,7 @@ public class Tube {
     private int padding;
     private int gapY;
     private int distanceBetweenTubes;
-    private int width = 200;
+    private int width = 250;
     private int height = 750;
     float speed = 5;
     boolean isPointReceived;
@@ -30,8 +30,8 @@ public class Tube {
     }
 
     public Tube(int tubeCount, int tubeIdx) {
-        textureUpperTube = new Texture("tube/tube_flipped.png");
-        textureDownTube = new Texture("tube/tube.png");
+        textureUpperTube = new Texture("tube/lianatube.png");
+        textureDownTube = new Texture("tube/dinotube.png");
 
         gapY = gapHeight / 2 + padding + r.nextInt(SCR_HEIGHT - 2 * (padding + gapHeight / 2));
         distanceBetweenTubes = (SCR_WIDTH + width) / (tubeCount - 1);

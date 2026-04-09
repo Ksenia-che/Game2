@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
 
 public class Bird {
-    public int width = 200;
-    public int height = 200;
+    public int width = 150;
+    public int height = 150;
     int jumpHeight;
     final int maxHeightOfJump = 200;
     boolean jump;
